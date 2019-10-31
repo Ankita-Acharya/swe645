@@ -1,0 +1,43 @@
+@charset "ISO-8859-1";
+/*
+Author: Ankita Acharya
+css for Survey.html
+*/
+            body {
+                background-color:#708090 	;
+                margin-right: 80px;
+                margin-left: 80px;
+                border: 10px solid #325C74;
+                border-top: none;
+            }
+            .form1 {
+                width: 35%;
+                height: 25px;
+            }
+            fieldset{
+                margin-left: 20px; 
+            }
+            h1{
+                text-shadow: 2px 2px gray;
+                border: 5px solid blue;
+            }
+            p{
+                margin-left: 20px;
+                margin-right: 50px;
+            }
+            .imgthing{
+
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                width: 200px;
+            }
+            .img1{
+                position: fixed;
+                right: 70px;
+                bottom: 0px;
+                top: 680px;
+            }
+            label{
+            	color:#325C74;
+            }

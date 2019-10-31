@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Survey</title>
+	<link rel="stylesheet" type="text/css" href="surveycss.css">
+    </head>
+
+    <body>
+        
+
+        <div style="background-color:#cfd1cf ">
+            <h1 style="color:blue;"><strong><ul>Student Survey</ul> </strong> </h1>
+
+<!-- Survey form to take up information -->
+            <form autocomplete="on" action="">
+                
+                <label>Fill the information: </label> <br><br>
+               <fieldset>
+               <label>User Name:</label>  <br><input class="form1" id="username"  type="text" pattern="^[a-zA-Z]*$" title="Only alphabets allowed!" required autofocus> <br>
+               <label>Street Address:</label>  <br><input class="form1" id="address" type="text" pattern="^[.0-9a-zA-Z\s,-]+$" title="Invalid address" required> <br> 
+                <label>Zip:</label> <br><input class="form1" id="zip" name="zip" type="number"  required> <br>
+                <label>City:</label> <br><input class="form1" id="city" type="text" required> <br>
+                <label>State: </label><br><input class="form1" id="state" type="text" required> <br>
+                <label>Telephone numb :</label><br><input class="form1" type="text" required placeholder="+1 (123) 456-7890"> <br>
+                <label>Email:</label> <br><input class="form1" id="email" type="email" pattern="^[a-zA-Z0-9._-]+@[A-Z0-9.-]+\.[A-Z]{2,}$" title="Invalid email" required placeholder="abc@example.com"> <br>
+                <label>URL:</label> <br><input class="form1" type="url" required> <br>
+                <label>Date of Survey:</label> <br><input class="form1" type="date" required> <br>
+               </fieldset> 
+
+               <br>
+
+               <table> 
+                   <tr>
+                       <td>
+                       <!-- Checkbox to choose multiple option -->
+                            <fieldset>
+                                    <label>What you like most about the campus? </label><br><br>
+                                    <input type="checkbox" name="op">Student <br>
+                                    <input type="checkbox" name="op"> Location <br>
+                                    <input type="checkbox" name="op"> Campus <br>
+                                    <input type="checkbox" name="op"> Atmosphere <br>
+                                    <input type="checkbox" name="op"> Dom rooms <br>
+                                    <input type="checkbox" name="op"> Sports <br>
+                                </fieldset>
+                       </td>
+
+                       <td>
+                       <!-- Radio button to choose only one option at a time -->
+                            <fieldset>
+                                    <label>Why you got interested in the University</label> <br><br>
+                                     <input type="radio" name="rop"> Friends <br>
+                                     <input type="radio" name="rop"> Television <br>
+                                     <input type="radio" name="rop"> Internet <br>
+                                     <input type="radio" name="rop"> Other <br>
+                                </fieldset>
+                       </td>
+                   </tr>
+               </table>
+
+               
+                  <br><br><br>
+                  <!-- dropdown menu -->
+                  <fieldset>
+                      <label>How likely you would recommend this school?</label><br><br>
+                      <select>
+                            <option >Very Likely</option>
+                            <option >Likely</option>
+                            <option>Unlikely</option>
+                          </select>
+                  </fieldset>
+                  <br><br><br>
+
+			<!-- Function luck() will be built as we go, not 1st assignment requirement -->
+                  <fieldset>
+                     <label> Enter the numbers: </label> <br> <br>
+                      <textarea id="numtextarea" rows="10" cols="40" onblur="luck();"> </textarea> <br>
+                  </fieldset>
+                  <h2 id="abc"></h2>
+                  <br>
+                  <label > Your luck says:   </label> <textarea id="num1" rows="1" cols="15"></textarea>
+                  
+
+                 <br><br><br>
+
+                 <br> 
+                 <!-- Additional text field -->
+                 <fieldset>
+                      <label>Additional comments? Type it here: </label><br> <br>
+                        <textarea rows="10" cols="40"> </textarea> 
+                  </fieldset>
+                 
+                 
+                 <br> <input style="margin-left:20px; padding: 10px; " type="submit"  value="Submit"> 
+                 <button style="margin-left:20px; padding: 10px; " value="Cancel">Cancel</button><br> <br> <br>
+
+            </form>
+
+        </div>
+</body>
+</html>
