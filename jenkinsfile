@@ -5,7 +5,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                echo "success";
+                echo "success"
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                echo "success";
+                echo "success"
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                echo "success";
+                echo "success"
                 }
             }
         }
