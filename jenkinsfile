@@ -1,32 +1,48 @@
 pipeline {
     agent any
-
+    /* Initializing user name and image names used later */
+    environment {
+        dockerImage = ''
+        USERNAME = 'tejank'
+        IMAGENAME = 'swehw2'
+        IMAGEVERSION = 'jenkins-v' + "${BUILD_NUMBER}"
+    }
     stages {
-        stage ('Compile Stage') {
-
+        /* Build war application */
+        stage('Build-Application') {
             steps {
-                withMaven(maven : 'maven_3_6_2') {
-                    sh 'mvn clean compile'
+                sh 'jar cvf swehw2.war index.html style.css'    
+            }
+        }
+
+        /* Build docker image from war built in previous step */
+        stage('Build-Docker-Image') {
+            steps {
+                script {
+                    dockerImage = docker.build USERNAME + "/" + IMAGENAME + ":" + IMAGEVERSION
                 }
             }
         }
 
-        stage ('Testing Stage') {
-
+        /* Push docker image to docker hub registry */
+        stage('Deploy-Docker-Image-To-Hub') {
             steps {
-                withMaven(maven : 'maven_3_6_2') {
-                    sh 'mvn test'
+                script {
+                    docker.withRegistry('', 'docker-cred') {
+                        dockerImage.push()
+                    }
                 }
             }
         }
 
-
-        stage ('Deployment Stage') {
+        /* Update the image used by kubernetes deployment */
+        stage('Deploy-Image-To-Kubernetes') {
             steps {
-                withMaven(maven : 'maven_3_6_2') {
-                    sh 'mvn deploy'
+                withKubeConfig([credentialsId: 'kube-cred', serverUrl: 'https://35.245.219.17']) {
+                  sh 'kubectl set image deployments/swehw2-deployment swehw2-app=$USERNAME/$IMAGENAME:$IMAGEVERSION'
                 }
             }
         }
     }
 }
+
